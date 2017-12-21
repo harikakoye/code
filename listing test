@@ -1,0 +1,78 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from .models import *
+# -*- coding: utf-8 -*-
+import json
+from rest_framework import status
+from django.test import TestCase, Client
+from django.urls import reverse
+from core.models import *
+from rest_framework.test import APIClient
+from rest_framework.test import APIRequestFactory
+from rest_framework.test import APITestCase
+# Create your tests here.
+factory = APIRequestFactory()
+baseurl='http://localhost:8000'
+class ConfigTest(APITestCase):
+    """ Test module for Location model """
+    maxDiff = None
+    def setUp(self):
+        category = PropertyTypeCategory.objects.create(title = 'Residential',description = 'water source')
+        propertytype = PropertyType.objects.create(title = 'Villa',category = category)
+        newconfig = Config.objects.create(title='hhjyhuk',description ='hjhgjj',unit='hjhgjhj')
+        newconfig.propertytype.add(propertytype)
+    def test_config(self):
+        url = baseurl+'/api/get_config/?title=hhjyhuk'
+        data = {}
+        response = self.client.get(url, data, format='json')
+        print json.loads(response.content)
+        #self.assertEqual(json.loads(response.content),)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+class ListingTest(APITestCase):
+    """ Test module for Location model """
+    maxDiff = None
+    def setUp(self):
+        newconfigs = Config.objects.create(title='',description ='',unit='')
+        newamenities = Amenitie.objects.create(title='',description ='')
+        state = State.objects.create(name = 'Andhra Pradesh')
+        country = Country.objects.create(name = 'India',country_code='IN',is_active='True')
+        address = Address.objects.create(line1 = 'mg road',line2 = '40-1-48, Sri Krishna Sai Bhavan',landmark = 'Opp. D.V.Manor Hotel, M.G.Road, Labbipet',city = 'Vijayawada',state = state,country = country,pincode = 520010,lat='16.515099',lng='80.632095')
+        location = Location.objects.create(formatted_address = 'Brodipet, Guntur, Andhra Pradesh, India', country = 'India', administrative_area_level_1 = 'Andhra Pradesh',
+            administrative_area_level_2='Vijayawada',sublocality_level_1='Guntur',sublocality_level_2='Brodipet 3rd lane',
+            locality='Amaravathi',raw='{"long_name": "Guntur", "types": ["sublocality_level_1"]}, {"long_name": "Amaravathi", "types": ["locality"]}, {"long_name": "Vijayawada", "types": ["administrative_area_level_2"]}, {"long_name": "Andhra Pradesh", "types": ["administrative_area_level_1"]}',
+            lat='16.314209',lng='80.435028')
+
+        category = PropertyTypeCategory.objects.create(title = 'Commercial',description = 'power backup facility')
+        property_type = PropertyType.objects.create(title = 'Showroom',category = category)
+        transactiontype = Transactiontype.objects.create(name ='rent')
+        user = User.objects.create(first_name='hamsini',last_name='hanvika')
+        newlisting = Listing.objects.create(title='',user=user,location=location,address=address,propertytype=propertytype,transactiontype=transactiontype,property_ownership='',description='',
+            society_name='',built_year=,posted_by='',listing_status='',occupancy_status='',available_from_month=,available_from_year=,
+            engage_agents='',is_expired='',expected_price=,show_price_as=,price_per_sqft=,maintanence_charges=,duration ='',expected_rent_price=,)
+    def test_listing(self):
+        url = baseurl+'/api/listing/?dob = 2005-11-02'
+        data = {}
+        response = self.client.get(url, data, format='json')
+        print json.loads(response.content)
+        self.assertEqual(json.loads(response.content),)
+'''
+
