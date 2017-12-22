@@ -14,7 +14,7 @@ from rest_framework.test import APITestCase
 factory = APIRequestFactory()
 baseurl='http://localhost:8000'
 class ConfigTest(APITestCase):
-    """ Test module for Location model """
+    """ Test module for Config model """
     maxDiff = None
     def setUp(self):
         category = PropertyTypeCategory.objects.create(title = 'Residential',description = 'water source')
@@ -68,6 +68,7 @@ class ListingTest(APITestCase):
         newlisting = Listing.objects.create(title='',user=user,location=location,address=address,propertytype=propertytype,transactiontype=transactiontype,property_ownership='',description='',
             society_name='',built_year=,posted_by='',listing_status='',occupancy_status='',available_from_month=,available_from_year=,
             engage_agents='',is_expired='',expected_price=,show_price_as=,price_per_sqft=,maintanence_charges=,duration ='',expected_rent_price=,)
+
     def test_listing(self):
         url = baseurl+'/api/listing/?dob = 2005-11-02'
         data = {}

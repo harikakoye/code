@@ -12,7 +12,7 @@ factory = APIRequestFactory()
 baseurl='http://localhost:8000'
 
 class PropertyTypeCategoryTest(APITestCase):
-    """ Test module for PropertyType model """
+    """ Test module for PropertyTypeCategory model """
     def setUp(self):
         PropertyTypeCategory.objects.create(title = 'Residential',description = 'water source')
     def test_propertytypecategory(self):
@@ -44,6 +44,7 @@ class StateTest(APITestCase):
         response = self.client.get(url, data, format='json')
         print json.loads(response.content)
         self.assertEqual(json.loads(response.content),{u'msg': {u'state': [{u'id': 1, u'country_code': u'IN', u'name': u'Telangana'}]}, u'status': u'success'})
+
 class RangeTest(APITestCase):
     """ Test module for Range model """
     def setUp(self):
@@ -65,6 +66,18 @@ class HowSoonTest(APITestCase):
         response = self.client.get(url, data, format='json')
         print json.loads(response.content)
         self.assertEqual(json.loads(response.content),[{u'id': 1, u'name': u'30 days'}])
+
+class MediaTest(APITestCase):
+    """ Test module for Media model """
+    def setUp(self):
+        Media.objects.create(name ='core.jpg',path='documents',media_type='profile_pic')
+    def test_media(self):
+        url = baseurl+'/api/upload_media/?name=30 days'
+        data = {}
+        response = self.client.post(url, data, format='json')
+        print json.loads(response.content)
+        self.assertEqual(json.loads(response.content),{u'detail': u'Unsupported media type "application/json; charset=None" in request.'})
+
 '''
 class LocationTest(APITestCase):
     """ Test module for Location model """
@@ -80,3 +93,4 @@ class LocationTest(APITestCase):
         print json.loads(response.content)
         #self.assertEqual(json.loads(response.content), {u'msg': {u'city': [{u'city': u'hyderabad', u'state': 1, u'id': 1, u'name': u'begumpet'}]}, u'status': u'success'})
 '''
+

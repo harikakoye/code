@@ -15,7 +15,7 @@ baseurl='http://localhost:8000'
 
 class NeedTest(APITestCase):
     maxDiff = None
-    """ Test module for Location model """
+    """ Test module for Need model """
     def setUp(self):
         location = Location.objects.create(formatted_address = 'Kukatpally, Hyderabad, Telangana, India', country = 'India', administrative_area_level_1 = 'Telangana',
             administrative_area_level_2='Ranga Reddy',sublocality_level_1='Kukatpally',sublocality_level_2='kukatpally 5th phase',
@@ -37,7 +37,7 @@ class NeedTest(APITestCase):
 
 class MatchedUserTest(APITestCase):
     maxDiff = None
-    """ Test module for Location model """
+    """ Test module for MatchedUser model """
     def setUp(self):
         location = Location.objects.create(formatted_address = 'Kukatpally, Hyderabad, Telangana, India', country = 'India', administrative_area_level_1 = 'Telangana',
             administrative_area_level_2='Ranga Reddy',sublocality_level_1='Kukatpally',sublocality_level_2='kukatpally 5th phase',

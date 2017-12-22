@@ -16,7 +16,7 @@ baseurl='http://localhost:8000'
 
 class CustomerTest(APITestCase):
     maxDiff = None
-    """ Test module for Location model """
+    """ Test module for Customer model """
     def setUp(self):
         contact_number = ContactNumber.objects.create(number = '8885556666',primary = 'True')
         contact_email = ContactEmail.objects.create(email = 'hamsini@gmail.com',primary = 'False')
