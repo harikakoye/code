@@ -14,7 +14,7 @@ from rest_framework.test import APITestCase
 # Create your tests here.
 factory = APIRequestFactory()
 baseurl='http://localhost:8000'
-
+'''
 class BuilderTest(APITestCase):
     """ Test module for Builder model """
     maxDiff = None
@@ -99,7 +99,6 @@ class BuilderListingTest(APITestCase):
         newventure = Venture.objects.create(state=state,country=country,builder=newbuilder,property_type=property_type,name='djangogoldpillar',status='active',total_units='69 sq.units',built_year='2015-07-01',pincode=868769,lat='18.314209',lng='82.435028')
         category = PropertyTypeCategory.objects.create(title = 'Residential',description = 'water source')
         propertytype = PropertyType.objects.create(title = 'Villa',category = category)
-
         config = Config.objects.create(title='hhjyhuk',description ='hjhgjj',unit='hjhgjhj',value='74657')
         amenities = Amenitie.objects.create(title='ghgfh',description ='ghg gfhgh')
         address = Address.objects.create(line1 = 'mg road',line2 = '40-1-48, Sri Krishna Sai Bhavan',landmark = 'Opp. D.V.Manor Hotel, M.G.Road, Labbipet',city = 'Vijayawada',state = state,country = country,pincode = 520010,lat='16.515099',lng='80.632095')
@@ -124,4 +123,3 @@ class BuilderListingTest(APITestCase):
         response = self.client.get(url, data, format='json')
         print json.loads(response.content)
         #self.assertEqual(json.loads(response.content),[{u'price_max': 8100000, u'avilable_units': 44, u'features': u'hjhjghgh', u'builder': 1, u'price_min': 5300000, u'venture': 1, u'listing': [], u'property_type': 1, u'id': 1, u'description': u'hjhgjh'}])
-'''
