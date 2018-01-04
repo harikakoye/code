@@ -55,7 +55,7 @@ class MatchedUserTest(APITestCase):
         response = self.client.get(url, data, format='json')
         print json.loads(response.content)
         self.assertEqual(json.loads(response.content),[{u'need': 1, u'interested': True, u'engaged': False, u'id': 1, u'user': 1}])
-'''
+
 class AgentRemarkTest(APITestCase):
     maxDiff = None
     """ Test module for MatchedUser model """
@@ -76,8 +76,6 @@ class AgentRemarkTest(APITestCase):
         response = self.client.post(url, data, format='json')
         print json.loads(response.content)
         #self.assertEqual(json.loads(response.content),[{u'need': 1, u'interested': True, u'engaged': False, u'id': 1, u'user': 1}])
-
-
 class RemarkTest(APITestCase):
     maxDiff = None
     """ Test module for MatchedUser model """
@@ -99,7 +97,7 @@ class RemarkTest(APITestCase):
         response = self.client.get(url, data, format='json')
         print json.loads(response.content)
         self.assertEqual(json.loads(response.content),{u'status': u'success', u'response': [{u'remark': u'bad', u'id': 1, u'match': 1, u'time': u'11:19:51.652852'}]})
-'''
+
 class SuggestionTest(APITestCase):
     maxDiff = None
     """ Test module for MatchedUser model """
@@ -118,13 +116,13 @@ class SuggestionTest(APITestCase):
         state = State.objects.create(name = 'Telangana',country_code='IN')
         country = Country.objects.create(name = 'India',country_code='IN',is_active='True')
         address = Address.objects.create(line1 = 'prakash nagar',line2 = 'ial colony',landmark = '3rd lane',city = 'Secunderabad',state = state,country = country,pincode = '500003',lat='20.0',lng='77.0')
-        suggestion = Listing.objects.create(title='goldpillar',user_id=1,location=location,address=address,propertytype=propertytype,transactiontype=transactiontype,property_ownership='fjjg',description='tgirehtgr',society_name='dfjks',built_year=01-02-1995,posted_by='admin',listing_status='active',occupancy_status='inactive',
-                    available_from_month=01-02-1995,available_from_year=01-02-1995,engage_agents=True,is_expired=False,expected_price=500000,show_price_as=300000,price_per_sqft=25000,maintanence_charges=10000,duration=30 days,expected_rent_price=15000)
+        suggestion = Listing.objects.create(title='3bhk on sale',user_id=1,location=location,address=address,propertytype=propertytype,transactiontype=transactiontype,property_ownership='co-operative society',description='near park',society_name='101 E san fernando',built_year=1993,posted_by='agent -admin',listing_status='active',occupancy_status='under construction',
+                    available_from_month=2,available_from_year=2019,engage_agents=True,is_expired=False,expected_price=10000000,show_price_as='call for price',price_per_sqft=1200,maintanence_charges=1500,duration='monthly',expected_rent_price=1200)
         Suggestion.objects.create(matched_user=matched_user,suggestion=suggestion)
     def test_suggestion(self):
         url = baseurl+'/api/add_suggestion/?interested=True'
         data = {}
-        response = self.client.get(url, data, format='json')
+        response = self.client.post(url, data, format='json')
         print json.loads(response.content)
         #self.assertEqual(json.loads(response.content),{u'status': u'success', u'response': [{u'remark': u'bad', u'id': 1, u'match': 1, u'time': u'11:19:51.652852'}]})
 
