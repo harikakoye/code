@@ -2,11 +2,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import json
-#from rest_framework import status
 from django.test import TestCase, Client
 from django.urls import reverse
-#from rest_framework.test import APIClient
-#from rest_framework.test import APIRequestFactory
 from django.test import RequestFactory
 from rest_framework.test import APITestCase
 from .models import *
@@ -49,9 +46,7 @@ class RegistrationTest(APITestCase):
         data['otp'] = otp
         data['first_name'] = "Harika"
         data['last_name'] = "Hamsini"
-        #data["contact_number"] = "9908201775"
         data["contact_number"] = "9133048409"
-        #data["locations"] = location
 
         data["locations"] = [{
 	"location": [{
@@ -92,11 +87,16 @@ class RegistrationTest(APITestCase):
 	"formatted_address": "Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India"
 }]
 
-        data["company_name"]='tagon software technologies'
-        data["company_website"]='tagontech.com'
+        data["company_website"] = 'tagontech.com'
+        data["company_name"] = 'tagon software technologies'
+
         response = self.client.post(url, data, format='json')
         print json.loads(response.content)
         responseData = json.loads(response.content)
         self.assertEqual(responseData['status'],'success')
         self.assertEqual(responseData['msg']['company_website'],'tagontech.com')
+        self.assertEqual(responseData['msg']['company_name'],'tagon software technologies')
+        self.assertEqual(responseData['msg']['location'],[{u'sublocality_level_1': u'Jogeshwari West', u'administrative_area_level_2': u'Mumbai Suburban', u'administrative_area_level_1': u'Maharashtra', u'locality': u'Mumbai', u'lat': u'19.154735', u'country': u'', u'sublocality_level_2': u'Bhagat Singh II', u'formatted_address': u'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India', u'lng': u'72.834721', u'id': 2}])
+        self.assertEqual(responseData['msg']['contact_number'],[{u'number': u'9133048409', u'primary': True, u'id': 2}])
+        
 
