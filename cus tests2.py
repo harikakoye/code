@@ -92,6 +92,8 @@ class RegistrationTest(APITestCase):
         self.assertEqual(responseData['status'],u'success')
         self.assertEqual(responseData['msg']['location'],[{u'sublocality_level_1': u'Jogeshwari West', u'administrative_area_level_2': u'Mumbai Suburban', u'administrative_area_level_1': u'Maharashtra', u'locality': u'Mumbai', u'lat': u'19.154735', u'country': u'', u'sublocality_level_2': u'Bhagat Singh II', u'formatted_address': u'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India', u'lng': u'72.834721', u'id': 1}])
         self.assertEqual(responseData['msg']['contact_number'],[{u'number': u'9133048409', u'primary': True, u'id': 1}])
+        self.assertEqual(responseData['msg']['user']['username'],'9133048409')
+        self.assertEqual(responseData['msg']['user']['first_name'],'Harika')
         #self.assertEqual(responseData['msg']['user'],{u'username': u'9133048409', u'last_name': u'', u'is_active': False, u'is_staff': False, u'groups': [], u'user_permissions': [], u'password': u'', u'id': 1, u'date_joined': u'2018-01-19T06:40:52.915211Z', u'first_name': u'Harika', u'is_superuser': False, u'last_login': None, u'email': u''})
         self.assertEqual(responseData['msg']['is_frequent_buyer'],False)
 
