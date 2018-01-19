@@ -19,7 +19,9 @@ baseurl='http://localhost:8000'
 class RegistrationTest(APITestCase):
     maxDiff = None
     """ Test module for Customer model """
-    def setUp(self):
+
+    def test_registration(self):
+        '''
         contact_number = ContactNumber.objects.create(number = '9133048409',primary = 'True')
         contact_email = ContactEmail.objects.create(email = 'hamsini@gmail.com',primary = 'False')
         location = Location.objects.create(formatted_address = 'Kukatpally, Hyderabad, Telangana, India', country = 'India', administrative_area_level_1 = 'Telangana',
@@ -32,7 +34,7 @@ class RegistrationTest(APITestCase):
         newcustomer.contact_email.add(contact_email)
         newcustomer.location.add(location)
         newcustomer.save()
-    def test_registration(self):
+        '''
         #verify otp code
         vurl = baseurl+'/api/verify/'
         vdata = {}
@@ -87,4 +89,8 @@ class RegistrationTest(APITestCase):
         response = self.client.post(url, data, format='json')
         print json.loads(response.content)
         responseData = json.loads(response.content)
+        self.assertEqual(responseData['status'],u'success')
+        self.assertEqual(responseData['msg']['location'],[{u'sublocality_level_1': u'Jogeshwari West', u'administrative_area_level_2': u'Mumbai Suburban', u'administrative_area_level_1': u'Maharashtra', u'locality': u'Mumbai', u'lat': u'19.154735', u'country': u'', u'sublocality_level_2': u'Bhagat Singh II', u'formatted_address': u'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India', u'lng': u'72.834721', u'id': 1}])
+        self.assertEqual(responseData['msg']['contact_number'],[{u'number': u'9133048409', u'primary': True, u'id': 1}])
+        #self.assertEqual(responseData['msg']['user'],{u'username': u'9133048409', u'last_name': u'', u'is_active': False, u'is_staff': False, u'groups': [], u'user_permissions': [], u'password': u'', u'id': 1, u'date_joined': u'2018-01-19T06:40:52.915211Z', u'first_name': u'Harika', u'is_superuser': False, u'last_login': None, u'email': u''})
 
