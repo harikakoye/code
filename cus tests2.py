@@ -17,7 +17,7 @@ from .views import*
 baseurl='http://localhost:8000'
 
 class RegistrationTest(APITestCase):
-    maxDiff = None
+    #maxDiff = None
     """ Test module for Customer model """
 
     def test_registration(self):
@@ -90,7 +90,20 @@ class RegistrationTest(APITestCase):
         print json.loads(response.content)
         responseData = json.loads(response.content)
         self.assertEqual(responseData['status'],u'success')
+
         self.assertEqual(responseData['msg']['location'],[{u'sublocality_level_1': u'Jogeshwari West', u'administrative_area_level_2': u'Mumbai Suburban', u'administrative_area_level_1': u'Maharashtra', u'locality': u'Mumbai', u'lat': u'19.154735', u'country': u'', u'sublocality_level_2': u'Bhagat Singh II', u'formatted_address': u'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India', u'lng': u'72.834721', u'id': 1}])
+
+        self.assertEqual(responseData['msg']['location'][0]['administrative_area_level_2'],'Mumbai Suburban')
+        self.assertEqual(responseData['msg']['location'][0]['sublocality_level_1'],'Jogeshwari West')
+        self.assertEqual(responseData['msg']['location'][0]['administrative_area_level_1'],'Maharashtra')
+        self.assertEqual(responseData['msg']['location'][0]['locality'],'Mumbai')
+        self.assertEqual(responseData['msg']['location'][0]['lat'],'19.154735')
+        self.assertEqual(responseData['msg']['location'][0]['country'],'')
+        self.assertEqual(responseData['msg']['location'][0]['sublocality_level_2'],'Bhagat Singh II')
+        self.assertEqual(responseData['msg']['location'][0]['formatted_address'],'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India')
+        self.assertEqual(responseData['msg']['location'][0]['lng'],'72.834721')
+        self.assertEqual(responseData['msg']['location'][0]['id'],1)
+
         self.assertEqual(responseData['msg']['contact_number'],[{u'number': u'9133048409', u'primary': True, u'id': 1}])
         self.assertEqual(responseData['msg']['user']['username'],'9133048409')
         self.assertEqual(responseData['msg']['user']['first_name'],'Harika')
