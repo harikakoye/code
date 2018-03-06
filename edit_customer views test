@@ -1,0 +1,159 @@
+
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+import json
+#from rest_framework import status
+from django.test import TestCase, Client
+from django.urls import reverse
+#from rest_framework.test import APIClient
+#from rest_framework.test import APIRequestFactory
+from django.test import RequestFactory
+from rest_framework.test import APITestCase
+from .models import *
+from core.models import *
+from .views import*
+# Create your tests here.
+
+baseurl='http://localhost:8000'
+
+
+class Edit_CustomerTest(APITestCase):
+    #maxDiff = None
+    """ Test module for Customer model """
+    def setUp(self):
+        newuser = User.objects.create(first_name='harika',last_name="hamsini")
+        newcustomer = Customer.objects.create(user=newuser,is_frequent_buyer = 0)
+        newcustomer.save()
+    def test_edit_customer(self):
+        ##edit_customer
+        url = baseurl+'/api/edit_customer/?'
+        data = {}
+        data["customer_id"] = 1
+        data['first_name'] = "Harika"
+        data['last_name'] = "Hamsini"
+        data["contact_number"] = [{"number":"9494346682","primary":1}]
+        data['email'] = [{"email":"hanvi@gmail.com","primary":0}]
+        data["dob"] = "2018-03-06"
+        data["is_frequent_buyer"] = "True"
+        data["locations"] = [{
+	"location": [{
+		"long_name": "Prakash Nagar",
+		"short_name": "Prakash Nagar",
+		"types": ["sublocality_level_3", "sublocality", "political"]
+	}, {
+		"long_name": "Bhagat Singh II",
+		"short_name": "Bhagat Singh II",
+		"types": ["sublocality_level_2", "sublocality", "political"]
+	}, {
+		"long_name": "Jogeshwari West",
+		"short_name": "Jogeshwari West",
+		"types": ["sublocality_level_1", "sublocality", "political"]
+	}, {
+		"long_name": "Mumbai",
+		"short_name": "Mumbai",
+		"types": ["locality", "political"]
+	}, {
+		"long_name": "Mumbai Suburban",
+		"short_name": "Mumbai Suburban",
+		"types": ["administrative_area_level_2", "political"]
+	}, {
+		"long_name": "Maharashtra",
+		"short_name": "MH",
+		"types": ["administrative_area_level_1", "political"]
+	}, {
+		"long_name": "India",
+		"short_name": "IN",
+		"types": ["country", "political"]
+	}, {
+		"long_name": "400047",
+		"short_name": "400047",
+		"types": ["postal_code"]
+	}],
+	"lat": 19.1547349,
+	"lng": 72.83472089999998,
+	"formatted_address": "Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India"
+}]
+
+        response = self.client.post(url, data, format='json')
+        print json.loads(response.content)
+        responseData = json.loads(response.content)
+
+
+class RegistrationTest(APITestCase):
+    #maxDiff = None
+    """ Test module for Customer model """
+
+    def test_registration(self):
+        #verify otp code
+        vurl = baseurl+'/api/verify/'
+        vdata = {}
+        vdata['number'] = '9133048409'
+        vresponse = self.client.post(vurl, vdata, format='json')
+        ##registration
+        url = baseurl+'/api/customer/registration/?'
+        data = {}
+        otp = input('Enter otp :')
+        data['otp'] = otp
+        data['first_name'] = "Harika"
+        data["contact_number"] = "9133048409"
+        data["locations"] = [{
+	"location": [{
+		"long_name": "Prakash Nagar",
+		"short_name": "Prakash Nagar",
+		"types": ["sublocality_level_3", "sublocality", "political"]
+	}, {
+		"long_name": "Bhagat Singh II",
+		"short_name": "Bhagat Singh II",
+		"types": ["sublocality_level_2", "sublocality", "political"]
+	}, {
+		"long_name": "Jogeshwari West",
+		"short_name": "Jogeshwari West",
+		"types": ["sublocality_level_1", "sublocality", "political"]
+	}, {
+		"long_name": "Mumbai",
+		"short_name": "Mumbai",
+		"types": ["locality", "political"]
+	}, {
+		"long_name": "Mumbai Suburban",
+		"short_name": "Mumbai Suburban",
+		"types": ["administrative_area_level_2", "political"]
+	}, {
+		"long_name": "Maharashtra",
+		"short_name": "MH",
+		"types": ["administrative_area_level_1", "political"]
+	}, {
+		"long_name": "India",
+		"short_name": "IN",
+		"types": ["country", "political"]
+	}, {
+		"long_name": "400047",
+		"short_name": "400047",
+		"types": ["postal_code"]
+	}],
+	"lat": 19.1547349,
+	"lng": 72.83472089999998,
+	"formatted_address": "Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India"
+}]
+
+        response = self.client.post(url, data, format='json')
+        print json.loads(response.content)
+        responseData = json.loads(response.content)
+        self.assertEqual(responseData['status'],u'success')
+        self.assertEqual(responseData['response']['location'],[{u'sublocality_level_1': u'Jogeshwari West', u'administrative_area_level_2': u'Mumbai Suburban', u'administrative_area_level_1': u'Maharashtra', u'locality': u'Mumbai', u'lat': u'19.154735', u'country': u'India', u'sublocality_level_2': u'Bhagat Singh II', u'formatted_address': u'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India', u'lng': u'72.834721', u'id': 1}])
+        self.assertEqual(responseData['response']['location'][0]['administrative_area_level_1'],'Maharashtra')
+        self.assertEqual(responseData['response']['location'][0]['administrative_area_level_2'],'Mumbai Suburban')
+        self.assertEqual(responseData['response']['location'][0]['sublocality_level_1'],'Jogeshwari West')
+        self.assertEqual(responseData['response']['location'][0]['sublocality_level_2'],'Bhagat Singh II')
+        self.assertEqual(responseData['response']['location'][0]['locality'],'Mumbai')
+        self.assertEqual(responseData['response']['location'][0]['lat'],'19.154735')
+        self.assertEqual(responseData['response']['location'][0]['country'],'India')
+        self.assertEqual(responseData['response']['location'][0]['formatted_address'],'Prakash Nagar, Bhagat Singh II, Jogeshwari West, Mumbai, Maharashtra 400047, India')
+        self.assertEqual(responseData['response']['location'][0]['lng'],'72.834721')
+        self.assertEqual(responseData['response']['location'][0]['id'],1)
+
+        self.assertEqual(responseData['response']['contact_number'],[{u'number': u'9133048409', u'primary': True, u'id': 1}])
+        self.assertEqual(responseData['response']['user']['username'],'9133048409')
+        self.assertEqual(responseData['response']['user']['first_name'],'Harika')
+        self.assertEqual(responseData['response']['user'],{u'username': u'9133048409', u'first_name': u'Harika', u'last_name': u'', u'id': 1})
+        self.assertEqual(responseData['response']['is_frequent_buyer'],False)
+
