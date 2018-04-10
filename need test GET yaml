@@ -1,0 +1,22 @@
+test_name: Get some fake data from the JSON placeholder API
+
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/need/?need_id=251
+      method: GET
+      headers:
+        content-type: application/json
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+
+
+
+
