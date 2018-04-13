@@ -1,0 +1,55 @@
+# Every test file has one or more tests...
+test_name: Get some fake data from the JSON placeholder API
+
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/need
+      method: POST
+      json:
+        need_type: "Paying_Guest"
+        desired_time: "within one month"
+        desired_budget_min: "4500"
+        desired_budget_max: "1000001"
+        customer_notes: ""
+        propertytype_id: 1
+        customer_id: 48
+        start_date: "09-19-2019"
+        location: [{"long_name": "Vile Parle East","short_name":"Vile Parle East","types":["sublocality_level_2","sublocality","political"]},{"long_name":"Vile Parle","short_name":"Vile Parle","types":["sublocality_level_1","sublocality","political"]},{"long_name":"Mumbai","short_name":"Mumbai","types":["locality","political"]},{"long_name":"Mumbai Suburban","short_name":"Mumb Suburban","types":["administrative_area_level_2","political"]},{"long_name":"Maharashtra","short_name":"MH","types":["administrative_area_level_1","political"]},{"long_name":"India","short_name":"IN","types":["country","political"]}]
+        lat: 17.3457176
+        lng: 78.5522296
+        formatted_address: "LB Nagar, Hyderabad, Telangana, India"
+      headers:
+        content-type: application/json
+
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Need was posted successfully"
+        status: "success"
+
+
+#test_name: Get some fake data from the JSON placeholder API
+
+# ...and each test has one or more stages (e.g. an HTTP request)
+#stages:
+  - name: Make sure we have the right ID 1
+
+    # Define the request to be made...
+    request:
+      url: http://qa.goldpillar.com/api/need/?need_id=3
+      method: GET
+      headers:
+        content-type: application/json
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+
