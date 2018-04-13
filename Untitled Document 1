@@ -1,22 +1,22 @@
 # Every test file has one or more tests...
+---
 test_name: Get some fake data from the JSON placeholder API
-
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
   - name: Make sure we have the right ID
 
     # Define the request to be made...
     request:
-      url: http://dev.goldpillar.com/need
+      url: http://dev.goldpillar.com/api/need/
       method: POST
       json:
-        need_type: "Paying_Guest"
+        need_type: "Paying Guest"
         desired_time: "within one month"
         desired_budget_min: "4500"
         desired_budget_max: "1000001"
         customer_notes: ""
         propertytype_id: 1
-        customer_id: 48
+        customer_id: 2
         start_date: "09-19-2019"
         location: [{"long_name": "Vile Parle East","short_name":"Vile Parle East","types":["sublocality_level_2","sublocality","political"]},{"long_name":"Vile Parle","short_name":"Vile Parle","types":["sublocality_level_1","sublocality","political"]},{"long_name":"Mumbai","short_name":"Mumbai","types":["locality","political"]},{"long_name":"Mumbai Suburban","short_name":"Mumb Suburban","types":["administrative_area_level_2","political"]},{"long_name":"Maharashtra","short_name":"MH","types":["administrative_area_level_1","political"]},{"long_name":"India","short_name":"IN","types":["country","political"]}]
         lat: 17.3457176
@@ -24,25 +24,21 @@ stages:
         formatted_address: "LB Nagar, Hyderabad, Telangana, India"
       headers:
         content-type: application/json
-
-
     # ...and the expected response code and body
     response:
       status_code: 200
       body:
         response: "Need was posted successfully"
         status: "success"
-
-
-#test_name: Get some fake data from the JSON placeholder API
-
+---
+test_name: Get some fake data from the JSON placeholder Need API
 # ...and each test has one or more stages (e.g. an HTTP request)
-#stages:
-  - name: Make sure we have the right ID 1
+stages:
+  - name: Make sure we have the right ID
 
     # Define the request to be made...
     request:
-      url: http://qa.goldpillar.com/api/need/?need_id=3
+      url: http://dev.goldpillar.com/api/need/?need_id=66
       method: GET
       headers:
         content-type: application/json
@@ -52,4 +48,66 @@ stages:
       status_code: 200
       body:
         status: "success"
+---
+test_name: Get some fake data from the JSON placeholder MyNeeds API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/myneeds/
+      method: POST
+      json:
+        customer_id: 2
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder need_agent_rating API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/need_agent_rating/
+      method: POST
+      json:
+        user_from_id: 22
+        user_to_id: 23
+        need_id: 71
+        rating: 5
+        comment: " "
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Rated successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder Need_Agent_Rating API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/need_agent_rating/?need_id=71&user_from_id=22&user_to_id=23
+      method: GET
+      headers:
+        content-type: application/json
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
 
