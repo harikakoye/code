@@ -4,7 +4,6 @@ test_name: Get some fake data from the JSON placeholder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
   - name: Make sure we have the right ID
-
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need/
@@ -35,7 +34,6 @@ test_name: Get some fake data from the JSON placeholder Need API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
   - name: Make sure we have the right ID
-
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need/?need_id=66
@@ -53,7 +51,6 @@ test_name: Get some fake data from the JSON placeholder MyNeeds API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
   - name: Make sure we have the right ID
-
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/myneeds/
@@ -72,7 +69,6 @@ test_name: Get some fake data from the JSON placeholder need_agent_rating API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
   - name: Make sure we have the right ID
-
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need_agent_rating/
@@ -96,7 +92,6 @@ test_name: Get some fake data from the JSON placeholder Need_Agent_Rating API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
   - name: Make sure we have the right ID
-
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need_agent_rating/?need_id=71&user_from_id=22&user_to_id=23
@@ -104,6 +99,325 @@ stages:
       headers:
         content-type: application/json
 
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_matched_users API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_matched_users/?need_id=69
+      method: GET
+      headers:
+        content-type: application/json
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_matched_needs API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_matched_needs/?user_id=21
+      method: GET
+      headers:
+        content-type: application/json
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder mark_need_interested API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/mark_need_interested/
+      method: POST
+      json:
+        type: "agent"
+        need_id: 58
+        user_id: 26
+        msg: "hii"
+        listing_id_1: 20
+        listing_id_2: 17
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Interest Marked"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder mark_need_engaged API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/mark_need_engaged/
+      method: POST
+      json:
+        user_id: 26
+        type: "customer"
+        need_id: 58
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "User Engaged"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder follow_up API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/follow_up/
+      method: POST
+      json:
+        type: "agent"
+        need_id: 69
+        user_from: 3
+        user_to: 4
+        message: "follows"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Followed Up"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder need_expired API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/need_expired/
+      method: POST
+      json:
+        need_id: 6
+        customer_id: 2
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 400
+      body:
+        response: "Need is no longer active"
+        statuscode: "134"
+        status: "error"
+---
+test_name: Get some fake data from the JSON placeholder remark API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/agentremark/?need_id=28&from_user_id=23
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder remark API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/agentremark/
+      method: POST
+      json:
+        from_user_id: 4
+        need_id: 66
+        remark: "bad"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Agent Remark posted successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder del_remark API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/del_remark/
+      method: POST
+      json:
+        NeedRemark_id: 5
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder reminder API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/reminder/?need_id=28&user_id=23
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder reminder API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/reminder/
+      method: POST
+      json:
+        need_id: 19
+        user_id: 3
+        date: "2019-04-12"
+        time: "10:18:00"
+        message: "reminds me"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "NeedReminder added successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder del_reminder API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/del_reminder/
+      method: POST
+      json:
+        reminder_id: 4
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder need_activities API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/need_activities/?need_id=69&to_user_id=4
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder register_call API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/register_call/?type=agent&need_id=58&from_user_id=6&to_user_id=4
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "call registered"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder ignore API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/ignore/
+      method: POST
+      json:
+        need_id: 3
+        user_id: 21
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder show_contact API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/show_contact/?need_id=28&user_id=23
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder suggestion API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/suggestion/?need_id=25&user_id=2
+      method: GET
+      headers:
+        content-type: application/json
     # ...and the expected response code and body
     response:
       status_code: 200
