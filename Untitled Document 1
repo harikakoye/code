@@ -424,6 +424,23 @@ stages:
       body:
         status: "success"
 ---
+test_name: Get some fake data from the JSON placeholder show_needhistory API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/show_needhistory/
+      method: POST
+      json:
+        customer_id: 2
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
 ---
 test_name: Get some fake data from the JSON placeholder Listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
@@ -458,6 +475,22 @@ stages:
         lat: 17.4885375
         lng: 78.3933989
         formatted_address: "kukatpally sub post office, Hyderabad, Telangana, India"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing/?listing_id=123&user_id=10
+      method: GET
       headers:
         content-type: application/json
     # ...and the expected response code and body
