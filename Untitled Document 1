@@ -499,4 +499,472 @@ stages:
       body:
         status: "success"
 ---
+test_name: Get some fake data from the JSON placeholder edit_listing API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/edit_listing/
+      method: POST
+      json:
+        title: "goldpillar"
+        listing_status: "open"
+        listing_id: 29
+        user_id: 24
+        propertytype_id: 3
+        transactiontype_id: 4
+        property_ownership_id: 3
+        occupancy_status_id: 2
+        package_id: 2
+        built_year: 1995
+        available_from_month: 3
+        available_from_year: 2018
+        expected_price: 100000
+        engage_agents: 1
+        description: "listing desc"
+        listingcategory: [1]
+        configs: [{"config_id":"2","value":"3","unit":"3"}]
+        amenities: [3,18]
+        address: {"line1":"kphb main road","line2":"bhagyanagar colony","city":"hyderabad","state":"telangana","country":"India","landmark":"violet purple","pincode":500018,"lat":15.8690415,"lng":72.7366859}
+        pricing_config: [{"pricing_id":"2","value":"500","all_included":1,"currency":"rupees"}]
+        location : [{"long_name":"bagyanagar","short_name":"bagyanagar","types":["sublocality_level_2","sublocality","political"]},{"long_name":"kphb","short_name":"kphb","types":["sublocality_level_1","sublocality","political"]},{"long_name":"hyderabad","short_name":"hyderabad","types":["locality","political"]},{"long_name":"trs office","short_name":"trs office","types":["administrative_area_level_2","political"]},{"long_name":"telangana","short_name":"TEL","types":["administrative_area_level_1","political"]},{"long_name":"India","short_name":"IN","types":["country","political"]}]
+        lat: 17.4833526
+        lng: 78.3870668
+        formatted_address: "kphb colony, hyderabad, telangana 522014, India"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Listing was edited successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder mylisting API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/mylisting/
+      method: POST
+      json:
+        user_id: 4
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder show_listinghistory API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/show_listinghistory/
+      method: POST
+      json:
+        user_id: 4
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_metadata API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_metadata/
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_config API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_config/?property_type_id=5&transaction_type_id=3
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_amenities API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_amenities/?property_type_id=5
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_listing_user API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_listing_user/?listing_id=149
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_matched_listing API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_matched_listing/?user_id=29
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder mark_listing_interested API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/mark_listing_interested/
+      method: POST
+      json:
+        user_id: 23
+        type: "agent"
+        message: "hii"
+        listing_id: 81
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Interest Marked"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder mark_listing_engaged API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/mark_listing_engaged/
+      method: POST
+      json:
+        user_id: 23
+        type: "customer"
+        listing_id: 81
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "User Engaged"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_ignore API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_ignore/
+      method: POST
+      json:
+        user_id: 23
+        listing_id: 141
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "ListingIgnore success"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_remark API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_remark/?listing_id=136&from_user_id=13
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder Listing_Remark API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_remark/
+      method: POST
+      json:
+        from_user_id: 4
+        listing_id: 54
+        remark: "bad"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Remark posted successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder dellist_remark API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/dellist_remark/
+      method: POST
+      json:
+        "listingRemark_id": 5
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_reminder API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_reminder/?listing_id=146&user_id=29
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder Listing_Reminder API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_reminder/
+      method: POST
+      json:
+        "listing_id": 144
+        "user_id": 29
+        "date": "2018-09-20"
+        "time": "6:17:08"
+        "message": "reminds me"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Reminder added successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder dellist_reminder API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/dellist_reminder/
+      method: POST
+      json:
+        "reminder_id": 4
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder remove_media API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/remove_media/
+      method: POST
+      json:
+        "listing_id": 51
+        "media_id": 50
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 400
+      body:
+        response: "Media Does Not Exist"
+        statuscode: "128"
+---
+test_name: Get some fake data from the JSON placeholder rating API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/rating/?listing_id=149&user_from_id=9&user_to_id=4
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder Rating API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/rating/
+      method: POST
+      json:
+        "user_from_id": 10
+        "user_to_id": 3
+        "listing_id": 19
+        "rating": 3
+        "comment": " "
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Rated successfully"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_expired API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_expired/
+      method: POST
+      json:
+        "listing_id": 73
+        "user_id": 10
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 400
+      body:
+        response: "Listing is no longer active"
+        statuscode: "130"
+        status: "error"
+---
+test_name: Get some fake data from the JSON placeholder listfollow_up API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listfollow_up/
+      method: POST
+      json:
+        "type": "customer"
+        "listing_id": 162
+        "user_from": 4
+        "user_to": 3
+        "message": " "
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Followed Up"
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_activities API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_activities/?listing_id=149&to_user_id=9
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder showlist_contact API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/showlist_contact/?listing_id=149&user_id=9
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
 
