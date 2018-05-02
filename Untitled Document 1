@@ -3,7 +3,7 @@
 test_name: Get some fake data from the JSON placeholder Need API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID1
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need/
@@ -33,7 +33,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder need API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID2
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need/?need_id=69
@@ -50,7 +50,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder MyNeeds API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID3
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/myneeds/
@@ -68,7 +68,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder need_agent_rating API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID4
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need_agent_rating/
@@ -91,7 +91,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder Need_Agent_Rating API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID5
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need_agent_rating/?need_id=71&user_from_id=22&user_to_id=23
@@ -108,7 +108,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder get_matched_users API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID6
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/get_matched_users/?need_id=69
@@ -125,7 +125,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder get_matched_needs API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID7
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/get_matched_needs/?user_id=21
@@ -142,7 +142,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder mark_need_interested API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID8
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/mark_need_interested/
@@ -166,7 +166,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder mark_need_engaged API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID9
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/mark_need_engaged/
@@ -187,7 +187,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder follow_up API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID10
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/follow_up/
@@ -210,7 +210,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder need_expired API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID11
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need_expired/
@@ -231,7 +231,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder remark API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID12
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/agentremark/?need_id=28&from_user_id=23
@@ -247,7 +247,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder remark API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID13
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/agentremark/
@@ -268,7 +268,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder del_remark API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID14
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/del_remark/
@@ -286,7 +286,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder reminder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID15
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/reminder/?need_id=28&user_id=23
@@ -302,7 +302,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder reminder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID16
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/reminder/
@@ -325,7 +325,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder del_reminder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID17
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/del_reminder/
@@ -343,7 +343,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder need_activities API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID18
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/need_activities/?need_id=69&to_user_id=4
@@ -359,7 +359,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder register_call API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID19
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/register_call/?type=agent&need_id=58&from_user_id=6&to_user_id=4
@@ -376,7 +376,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder ignore API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID20
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/ignore/
@@ -395,7 +395,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder suggestion API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID21
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/suggestion/?need_id=25&user_id=2
@@ -411,7 +411,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder show_contact API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID22
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/show_contact/?need_id=28&user_id=23
@@ -427,7 +427,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder show_needhistory API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID23
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/show_needhistory/
@@ -445,7 +445,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder Listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID24
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing/
@@ -486,7 +486,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID25
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing/?listing_id=123&user_id=10
@@ -502,7 +502,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder edit_listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID26
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/edit_listing/
@@ -544,7 +544,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder mylisting API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID27
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/mylisting/
@@ -562,7 +562,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder show_listinghistory API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID28
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/show_listinghistory/
@@ -580,7 +580,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_metadata API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID29
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_metadata/
@@ -596,7 +596,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_config API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID30
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_config/?property_type_id=5&transaction_type_id=3
@@ -612,7 +612,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_amenities API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID31
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_amenities/?property_type_id=5
@@ -628,7 +628,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder get_listing_user API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID32
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/get_listing_user/?listing_id=149
@@ -644,7 +644,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder get_matched_listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID33
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/get_matched_listing/?user_id=29
@@ -660,7 +660,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder mark_listing_interested API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID34
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/mark_listing_interested/
@@ -682,7 +682,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder mark_listing_engaged API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID35
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/mark_listing_engaged/
@@ -703,7 +703,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_ignore API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID36
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_ignore/
@@ -723,7 +723,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_remark API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID37
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_remark/?listing_id=136&from_user_id=13
@@ -739,7 +739,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder Listing_Remark API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID38
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_remark/
@@ -760,13 +760,13 @@ stages:
 test_name: Get some fake data from the JSON placeholder dellist_remark API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID39
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/dellist_remark/
       method: POST
       json:
-        "listingRemark_id": 5
+        "listingRemark_id": 2
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -778,7 +778,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_reminder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID40
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_reminder/?listing_id=146&user_id=29
@@ -794,14 +794,14 @@ stages:
 test_name: Get some fake data from the JSON placeholder Listing_Reminder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID41
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_reminder/
       method: POST
       json:
-        "listing_id": 144
-        "user_id": 29
+        "listing_id": 88
+        "user_id": 23
         "date": "2018-09-20"
         "time": "6:17:08"
         "message": "reminds me"
@@ -817,13 +817,13 @@ stages:
 test_name: Get some fake data from the JSON placeholder dellist_reminder API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID42
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/dellist_reminder/
       method: POST
       json:
-        "reminder_id": 4
+        "reminder_id": 46
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -835,7 +835,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder remove_media API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID43
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/remove_media/
@@ -855,7 +855,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder rating API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID44
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/rating/?listing_id=149&user_from_id=9&user_to_id=4
@@ -871,7 +871,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder Rating API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID45
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/rating/
@@ -894,7 +894,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_expired API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID46
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_expired/
@@ -915,7 +915,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listfollow_up API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID47
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listfollow_up/
@@ -938,7 +938,7 @@ stages:
 test_name: Get some fake data from the JSON placeholder listing_activities API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID48
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/listing_activities/?listing_id=149&to_user_id=9
@@ -954,11 +954,54 @@ stages:
 test_name: Get some fake data from the JSON placeholder showlist_contact API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
-  - name: Make sure we have the right ID
+  - name: Make sure we have the right ID49
     # Define the request to be made...
     request:
       url: http://dev.goldpillar.com/api/showlist_contact/?listing_id=149&user_id=9
       method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_video API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID50
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing/add/video/
+      method: POST
+      json:
+        "name": "home overview"
+        "listing_id": 22
+        "url": "https://www.youtube.com/watch?v=6xU_fTSAR-E"
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 400
+      body:
+        response: "Listing already has video, try to delete to add new."
+        statuscode: "122"
+        status: "error"
+---
+test_name: Get some fake data from the JSON placeholder listing_media API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID51
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing/add/photo/
+      method: POST
+      params:
+        media_type: Advertisement Photo
+        listing_id: 77
+        tag: Interior View
+        file: https://www.99acres.com/microsite/vka-infra-services-enrico-heights-wardha-road-nagpur/files/2013/10/int-2.jpg
       headers:
         content-type: application/json
     # ...and the expected response code and body
