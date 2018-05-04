@@ -128,7 +128,7 @@ stages:
   - name: Make sure we have the right ID7
     # Define the request to be made...
     request:
-      url: http://dev.goldpillar.com/api/get_matched_needs/?user_id=21
+      url: http://dev.goldpillar.com/api/get_matched_needs/?user_id=23
       method: GET
       headers:
         content-type: application/json
@@ -195,9 +195,11 @@ stages:
       json:
         type: "agent"
         need_id: 69
-        user_from: 3
-        user_to: 4
+        user_from: 9
+        user_to: 44
         message: "follows"
+        listing_id_1: 121
+        listing_id_2: 165
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -309,8 +311,8 @@ stages:
       method: POST
       json:
         need_id: 19
-        user_id: 3
-        date: "2019-04-12"
+        user_id: 29
+        date: "2018-08-12"
         time: "10:18:00"
         message: "reminds me"
       headers:
@@ -331,7 +333,7 @@ stages:
       url: http://dev.goldpillar.com/api/del_reminder/
       method: POST
       json:
-        reminder_id: 4
+        reminder_id: 151
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -382,8 +384,8 @@ stages:
       url: http://dev.goldpillar.com/api/ignore/
       method: POST
       json:
-        need_id: 3
-        user_id: 21
+        need_id: 8
+        user_id: 6
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -878,7 +880,7 @@ stages:
       method: POST
       json:
         "user_from_id": 10
-        "user_to_id": 3
+        "user_to_id": 23
         "listing_id": 19
         "rating": 3
         "comment": " "
@@ -924,7 +926,7 @@ stages:
         "type": "customer"
         "listing_id": 162
         "user_from": 4
-        "user_to": 3
+        "user_to": 23
         "message": " "
       headers:
         content-type: application/json
@@ -976,9 +978,9 @@ stages:
       url: http://dev.goldpillar.com/api/listing/add/video/
       method: POST
       json:
-        "name": "home overview"
-        "listing_id": 22
-        "url": "https://www.youtube.com/watch?v=6xU_fTSAR-E"
+        name: "home overview"
+        listing_id: 300
+        url: "https://www.youtube.com/watch?v=6xU_fTSAR-E"
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -988,26 +990,5 @@ stages:
         response: "Listing already has video, try to delete to add new."
         statuscode: "122"
         status: "error"
----
-test_name: Get some fake data from the JSON placeholder listing_media API
-# ...and each test has one or more stages (e.g. an HTTP request)
-stages:
-  - name: Make sure we have the right ID51
-    # Define the request to be made...
-    request:
-      url: http://dev.goldpillar.com/api/listing/add/photo/
-      method: POST
-      params:
-        media_type: Advertisement Photo
-        listing_id: 77
-        tag: Interior View
-        file: https://www.99acres.com/microsite/vka-infra-services-enrico-heights-wardha-road-nagpur/files/2013/10/int-2.jpg
-      headers:
-        content-type: application/json
-    # ...and the expected response code and body
-    response:
-      status_code: 200
-      body:
-        status: "success"
 ---
 
