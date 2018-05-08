@@ -444,6 +444,23 @@ stages:
       body:
         status: "success"
 ---
+test_name: Get some fake data from the JSON placeholder suggested_properties API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID2
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/suggested_properties/?user_id=10&need_id=264
+      method: GET
+      headers:
+        content-type: application/json
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
 test_name: Get some fake data from the JSON placeholder Listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
