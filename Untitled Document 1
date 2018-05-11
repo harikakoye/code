@@ -1135,4 +1135,102 @@ stages:
       body:
         status: "success"
 ---
+test_name: Get some fake data from the JSON placeholder get_needalert API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID59
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_needalert/?user_id=22&need_id=364
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_needalert API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID60
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_needalert/?need_alert_id=1175
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_listingalert API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID61
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_listingalert/?listing_alert_id=383
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_listingalert API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID62
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_listingalert/?listing_id=333&user_id=6
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder get_allalerts API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID63
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/get_allalerts/?user_id=6
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder mark_alert API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID64
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/mark_alert/
+      method: POST
+      json:
+        type: "listing_alert"
+        alert_id: 81
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        response: "Alert Read"
+        status: "success"
+---
 
