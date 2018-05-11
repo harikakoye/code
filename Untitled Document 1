@@ -453,30 +453,30 @@ stages:
       url: http://dev.goldpillar.com/api/listing/
       method: POST
       json:
-        user_id: 10
-        propertytype_id: 4
+        user_id: 6
+        propertytype_id: 1
         transactiontype_id: 4
-        property_ownership_id: 3
+        property_ownership_id: 4
         occupancy_status_id: 2
-        expected_price: 100000
-        project_name: "goldpillar"
-        description: "near to bus stop"
-        built_year: 1995
-        engage_agents: "True"
+        start_date: 05-09-2018
+        engage_agents: 1
+        expected_price: 876580
+        project_name: goldpillar
+        description: jhdgjkrhgjkr
+        built_year: 2000
         available_from_month: 7
         available_from_year: 2018
-        all_price_included: "True"
-        start_date: "07-23-2018"
-        configs: [{"config_id":"1","value":"3"},{"config_id":"2","value":"3","unit_id":"5"}]
-        listingcategory: [1,3]
+        all_price_included: True
+        listingcategory: [4]
         package_id: 1
         pricing_config: [{"pricing_id":"1","value":"500","all_included":1,"currency":"rupees"}]
         amenities: [3,18]
         address: {"line1":"kphb main road","line2":"bhagyanagar colony","city":"hyderabad","state":"telangana","country":"India","landmark":"violet purple","pincode":500018,"lat":15.8690415,"lng":72.7366859}
+        configs: [{"config_id":"1","value":"3"},{"config_id":"2","value":"3","unit_id":"5"}]
         location : [{"long_name":"bagyanagar","short_name":"bagyanagar","types":["sublocality_level_2","sublocality","political"]},{"long_name":"kphb","short_name":"kphb","types":["sublocality_level_1","sublocality","political"]},{"long_name":"hyderabad","short_name":"hyderabad","types":["locality","political"]},{"long_name":"trs office","short_name":"trs office","types":["administrative_area_level_2","political"]},{"long_name":"telangana","short_name":"TEL","types":["administrative_area_level_1","political"]},{"long_name":"India","short_name":"IN","types":["country","political"]}]
-        lat: 17.4885375
-        lng: 78.3933989
-        formatted_address: "kukatpally sub post office, Hyderabad, Telangana, India"
+        lat: 16.8690415
+        lng: 80.7366859
+        formatted_address: "Reddigudem, Andhra Pradesh 521215, India"
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -552,7 +552,8 @@ stages:
       url: http://dev.goldpillar.com/api/mylisting/
       method: POST
       json:
-        user_id: 4
+        user_id: 6
+        need_id: 338
       headers:
         content-type: application/json
     # ...and the expected response code and body
@@ -1008,6 +1009,126 @@ stages:
       #headers:
         #content-type: application/json
         #consumes: multipart/form-data
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder search API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID52
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing/search/
+      method: POST
+      json:
+        lat: 19.361899
+        lng: 79.2930312
+        property_type: ["Service Apartments"]
+        transaction_type: ["Paying Guest"]
+        min_budget: 5000
+        max_budget: 100000
+        amenities: [{"id":"20"}]
+        config: [{"id":"1","value":"3"}]
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_pricing API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID53
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_pricing/
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder search_listing_filters API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID54
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/search_listing_filters/
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder viewwallet API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID55
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/viewwallet/?user_id=9
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder listing_mediatags API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID56
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing_mediatags/?property_type_id=2
+      method: GET
+      headers:
+        content-type: application/json
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder similar_listings API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID57
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/similar_listings/
+      method: POST
+      json:
+        listing_id: 326
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
+---
+test_name: Get some fake data from the JSON placeholder suggestion_search API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID58
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/suggestion_search/
+      method: POST
+      json:
+        key: bedrooms
+        user_id: 24
     # ...and the expected response code and body
     response:
       status_code: 200
