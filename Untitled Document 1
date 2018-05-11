@@ -444,23 +444,6 @@ stages:
       body:
         status: "success"
 ---
-test_name: Get some fake data from the JSON placeholder suggested_properties API
-# ...and each test has one or more stages (e.g. an HTTP request)
-stages:
-  - name: Make sure we have the right ID2
-    # Define the request to be made...
-    request:
-      url: http://dev.goldpillar.com/api/suggested_properties/?user_id=10&need_id=264
-      method: GET
-      headers:
-        content-type: application/json
-
-    # ...and the expected response code and body
-    response:
-      status_code: 200
-      body:
-        status: "success"
----
 test_name: Get some fake data from the JSON placeholder Listing API
 # ...and each test has one or more stages (e.g. an HTTP request)
 stages:
@@ -1007,5 +990,28 @@ stages:
         response: "Listing already has video, try to delete to add new."
         statuscode: "122"
         status: "error"
+---
+test_name: Get some fake data from the JSON placeholder listing_media API
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: Make sure we have the right ID51
+    # Define the request to be made...
+    request:
+      url: http://dev.goldpillar.com/api/listing/add/photo/
+      method: POST
+      data:
+        media_type: Advertisement Photo
+        listing_id: 310
+        tag: Interior View
+        file: "home/harika/Documents/images/3.jpg"
+        #path: "home/harika/Documents/images/3.jpg"
+      #headers:
+        #content-type: application/json
+        #consumes: multipart/form-data
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+      body:
+        status: "success"
 ---
 
